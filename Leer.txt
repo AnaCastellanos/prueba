@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include<string.h>
+
+int main(){ 
+
+
+FILE* fichero; 
+char arreglo[10][40]; 
+char cadena[40]; 
+int i;
+int j;
+
+	if((fichero = fopen("HiScore.txt", "r")) == NULL ){ 
+		puts("No se pudo abrir el fichero"); 
+		return 1; 
+	}	 
+
+	i = 0; 
+	
+	if (fichero== NULL){ 		
+		
+		perror ("Error al abrir fichero.txt");
+   		return -1;
+	}else{
+		
+		for (i=0;i<3;i++)
+	   {	   	   
+			fscanf (fichero, "%s", arreglo[i]);	   	    		  
+	   }	
+	}
+
+	fclose( fichero );	
+	for(i = 0; i < 3; ++i) 
+		printf("%s", arreglo[i]); 
+	return 0; 
+} 
+
